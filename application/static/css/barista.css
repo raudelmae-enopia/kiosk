@@ -1,0 +1,667 @@
+/* =========================================
+   SAIKA CAFÉ
+   BARISTA / STAFF UI
+========================================= */
+
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #171014;
+
+    color: #f3e7e5;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   APP
+========================================= */
+
+.barista-app {
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #171014;
+}
+
+
+/* =========================================
+   TOP BAR
+========================================= */
+
+.barista-header {
+
+    height: 82px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 32px;
+
+    background: #21171d;
+
+    border-bottom: 2px solid #3b252e;
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.barista-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.barista-logo {
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 10px;
+
+    object-fit: cover;
+
+    background: #2a1b22;
+
+    border: 1px solid #53343f;
+}
+
+
+.barista-brand h1 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 30px;
+
+    letter-spacing: 3px;
+
+    color: #f0d8dc;
+}
+
+
+/* =========================================
+   MENU / BACK BUTTON
+========================================= */
+
+.menu-button {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px 20px;
+
+    border-radius: 12px;
+
+    text-decoration: none;
+
+    background: #35212a;
+
+    border: 1px solid #65404d;
+
+    color: #f1dadd;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    transition: 0.2s;
+}
+
+
+.menu-button:hover {
+
+    background: #492b37;
+
+    border-color: #8b5362;
+
+    transform: translateY(-1px);
+}
+
+
+.back-icon {
+
+    font-size: 21px;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.barista-main {
+
+    flex: 1;
+
+    min-height: 0;
+
+    overflow-y: auto;
+
+    padding-bottom: 30px;
+}
+
+
+/* =========================================
+   ORDERS SECTION
+========================================= */
+
+.orders-section {
+
+    padding: 25px 32px 10px;
+}
+
+
+.orders-section h2,
+.waiting-section h2 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color: #edcdd2;
+
+    font-size: 25px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================
+   ACTIVE ORDERS
+   ALWAYS 3 COLUMNS
+========================================= */
+
+.orders-container {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+/* =========================================
+   ORDER CARD
+========================================= */
+
+.order-card {
+
+    min-width: 0;
+
+    min-height: 330px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 20px;
+
+    background: #21171d;
+
+    border: 2px solid #3b252e;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.25);
+}
+
+
+/* First order = currently actionable */
+
+.active-order {
+
+    border-color: #8e5362;
+
+    box-shadow:
+        0 5px 20px rgba(109, 54, 69, 0.25);
+}
+
+
+/* =========================================
+   ORDER NUMBER
+========================================= */
+
+.order-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding-bottom: 16px;
+
+    border-bottom: 1px solid #3b252e;
+}
+
+
+.order-number {
+
+    font-size: 38px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: #f2dadd;
+}
+
+
+/* =========================================
+   ORDER ITEMS
+========================================= */
+
+.order-items {
+
+    flex: 1;
+
+    padding: 20px 4px;
+}
+
+
+.order-item {
+
+    padding: 11px 0;
+
+    border-bottom: 1px solid #35232b;
+
+    color: #eadcda;
+
+    font-size: 18px;
+
+    line-height: 1.4;
+}
+
+
+.order-item:last-child {
+
+    border-bottom: none;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.order-status {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 65px;
+}
+
+
+.pending-status {
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: #a99a9c;
+}
+
+
+/* =========================================
+   ACTION
+========================================= */
+
+.order-action {
+
+    padding-top: 10px;
+}
+
+
+.action-button {
+
+    width: 100%;
+
+    min-height: 60px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: #7d4657;
+
+    color: #fff3f4;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.action-button:hover {
+
+    background: #965668;
+
+    transform: translateY(-1px);
+}
+
+
+.action-button:active {
+
+    transform: scale(0.985);
+}
+
+
+/* =========================================
+   DONE BUTTON
+========================================= */
+
+.action-button.done-button {
+
+    background: #536d5b;
+
+    color: #f1f7f2;
+}
+
+
+.action-button.done-button:hover {
+
+    background: #66856f;
+}
+
+
+/* =========================================
+   WAITING ORDERS
+========================================= */
+
+.waiting-section {
+
+    padding: 20px 32px 30px;
+}
+
+
+.waiting-orders {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, minmax(0, 1fr));
+
+    gap: 12px;
+
+    max-height: 220px;
+
+    overflow-y: auto;
+
+    padding-right: 5px;
+}
+
+
+/* =========================================
+   WAITING ORDER
+========================================= */
+
+.waiting-order {
+
+    min-height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: #261a21;
+
+    border: 1px solid #49303a;
+
+    color: #cdbabc;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    transition: 0.2s;
+}
+
+
+.waiting-order:hover {
+
+    background: #32212a;
+
+    border-color: #704454;
+
+    color: #efd8dc;
+}
+
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+.barista-main::-webkit-scrollbar,
+.waiting-orders::-webkit-scrollbar {
+
+    width: 8px;
+}
+
+
+.barista-main::-webkit-scrollbar-track,
+.waiting-orders::-webkit-scrollbar-track {
+
+    background: #1b1217;
+
+    border-radius: 10px;
+}
+
+
+.barista-main::-webkit-scrollbar-thumb,
+.waiting-orders::-webkit-scrollbar-thumb {
+
+    background: #593542;
+
+    border-radius: 10px;
+}
+
+
+.barista-main::-webkit-scrollbar-thumb:hover,
+.waiting-orders::-webkit-scrollbar-thumb:hover {
+
+    background: #754657;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .barista-header {
+
+        height: 76px;
+
+        padding: 0 22px;
+    }
+
+
+    .barista-brand h1 {
+
+        font-size: 25px;
+    }
+
+
+    .barista-logo {
+
+        width: 42px;
+        height: 42px;
+    }
+
+
+    .orders-section,
+    .waiting-section {
+
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+
+    .orders-container {
+
+        gap: 12px;
+    }
+
+
+    .order-card {
+
+        min-height: 290px;
+
+        padding: 16px;
+    }
+
+
+    .order-number {
+
+        font-size: 32px;
+    }
+
+
+    .order-item {
+
+        font-size: 16px;
+    }
+
+
+    .waiting-orders {
+
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================
+   SMALL SCREEN
+========================================= */
+
+@media (max-width: 700px) {
+
+    body {
+
+        overflow: auto;
+    }
+
+
+    .barista-app {
+
+        min-height: 100vh;
+
+        height: auto;
+    }
+
+
+    .barista-header {
+
+        padding: 0 15px;
+    }
+
+
+    .barista-brand h1 {
+
+        font-size: 21px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .barista-logo {
+
+        width: 38px;
+        height: 38px;
+    }
+
+
+    .menu-button {
+
+        padding: 9px 13px;
+
+        font-size: 14px;
+    }
+
+
+    .orders-container {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .waiting-orders {
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+}

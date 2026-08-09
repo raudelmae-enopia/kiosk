@@ -1,0 +1,623 @@
+{% extends "base.html" %} {% block title %}Saika Café{% endblock %} {% block
+content %}
+
+<div class="kiosk-app">
+  <!-- ================================
+         TOP BAR
+    ================================= -->
+
+  <header class="kiosk-header">
+    <div class="brand">
+      <img
+        class="brand-logo"
+        src="{{ url_for('static', filename='images/items/logo.jpg') }}"
+        alt="Saika Cafe Logo"
+      />
+
+      <h1>SAIKA CAFE</h1>
+    </div>
+
+    <a href="/barista" class="orders-button">
+      <span class="lock-icon">🔒</span>
+      <span>ORDERS</span>
+    </a>
+  </header>
+
+  <!-- ================================
+         MAIN THREE COLUMN AREA
+    ================================= -->
+
+  <div class="kiosk-layout">
+    <!-- ============================
+             CATEGORY SIDEBAR
+        ============================= -->
+
+    <aside class="category-panel">
+      <h2>Categories</h2>
+
+      <button
+        class="category-button active"
+        onclick="showCategory('best-sellers')"
+      >
+        🌸 Best Sellers
+      </button>
+
+      <button class="category-button" onclick="showCategory('drinks')">
+        ☕ Drinks
+      </button>
+
+      <button class="category-button" onclick="showCategory('pastries')">
+        🥐 Pastries
+      </button>
+
+      <button class="category-button" onclick="showCategory('light-dishes')">
+        🍱 Light Dishes
+      </button>
+    </aside>
+
+    <!-- ============================
+     MENU
+============================ -->
+
+    <main class="menu-panel">
+      <div class="menu-scroll">
+        <!-- ============================
+         BEST SELLERS
+    ============================ -->
+
+        <section id="best-sellers" class="menu-section">
+          <h2>Best Sellers</h2>
+
+          <div class="menu-grid">
+            <!-- Tokyo-Style Drip Coffee -->
+
+            <button
+              class="menu-card"
+              onclick="openItemModal(
+            'Tokyo-Style Drip Coffee',
+            '/static/images/items/placeholder.jpg',
+            '',
+            true,
+            '170',
+            '200',
+            '230'
+          )"
+            >
+              <img
+                src="/static/images/items/placeholder.jpg"
+                alt="Tokyo-Style Drip Coffee"
+              />
+
+              <div class="menu-card-name">Tokyo-Style Drip Coffee</div>
+            </button>
+
+            <!-- Premium Uji Matcha Latte -->
+
+            <button
+              class="menu-card"
+              onclick="openItemModal(
+            'Premium Uji Matcha Latte',
+            '/static/images/items/placeholder.jpg',
+            '',
+            true,
+            '260',
+            '290',
+            '320'
+          )"
+            >
+              <img
+                src="/static/images/items/placeholder.jpg"
+                alt="Premium Uji Matcha Latte"
+              />
+
+              <div class="menu-card-name">Premium Uji Matcha Latte</div>
+            </button>
+
+            <!-- Café Latte -->
+
+            <button
+              class="menu-card"
+              onclick="openItemModal(
+            'Café Latte',
+            '/static/images/items/placeholder.jpg',
+            '',
+            true,
+            '220',
+            '250',
+            '280'
+          )"
+            >
+              <img
+                src="/static/images/items/placeholder.jpg"
+                alt="Café Latte"
+              />
+
+              <div class="menu-card-name">Café Latte</div>
+            </button>
+
+            <!-- Butter Croissant -->
+
+            <button
+              class="menu-card"
+              onclick="openItemModal(
+            'Butter Croissant',
+            '/static/images/items/placeholder.jpg',
+            '₱140',
+            false
+          )"
+            >
+              <img
+                src="/static/images/items/placeholder.jpg"
+                alt="Butter Croissant"
+              />
+
+              <div class="menu-card-name">Butter Croissant</div>
+            </button>
+
+            <!-- Strawberry Shortcake -->
+
+            <button
+              class="menu-card"
+              onclick="openItemModal(
+            'Strawberry Shortcake',
+            '/static/images/items/placeholder.jpg',
+            '₱240',
+            false
+          )"
+            >
+              <img
+                src="/static/images/items/placeholder.jpg"
+                alt="Strawberry Shortcake"
+              />
+
+              <div class="menu-card-name">Strawberry Shortcake</div>
+            </button>
+
+            <!-- Mini Katsu Sliders -->
+
+            <button
+              class="menu-card"
+              onclick="openItemModal(
+            'Mini Katsu Sliders',
+            '/static/images/items/placeholder.jpg',
+            '₱260',
+            false
+          )"
+            >
+              <img
+                src="/static/images/items/placeholder.jpg"
+                alt="Mini Katsu Sliders"
+              />
+
+              <div class="menu-card-name">Mini Katsu Sliders</div>
+            </button>
+          </div>
+        </section>
+
+        <!-- ============================
+         DRINKS
+    ============================ -->
+
+        <section id="drinks" class="menu-section">
+          <h2>Drinks</h2>
+
+          <div class="menu-grid">
+            <button
+              class="menu-card"
+              onclick="openItemModal(
+                                'Tokyo-Style Drip Coffee',
+                                '/static/images/items/placeholder.jpg',
+                                '',
+                                true
+                            )"
+            >
+              <img src="/static/images/items/placeholder.jpg" />
+
+              <div class="menu-card-name">Tokyo-Style Drip Coffee</div>
+            </button>
+
+            <button
+              class="menu-card"
+              onclick="openItemModal(
+                                'Espresso',
+                                '/static/images/items/placeholder.jpg',
+                                '',
+                                true
+                            )"
+            >
+              <img src="/static/images/items/placeholder.jpg" />
+
+              <div class="menu-card-name">Espresso</div>
+            </button>
+
+            <button
+              class="menu-card"
+              onclick="openItemModal(
+                                'Americano',
+                                '/static/images/items/placeholder.jpg',
+                                '',
+                                true
+                            )"
+            >
+              <img src="/static/images/items/placeholder.jpg" />
+
+              <div class="menu-card-name">Americano</div>
+            </button>
+
+            <button
+              class="menu-card"
+              onclick="openItemModal(
+                                'Café Latte',
+                                '/static/images/items/placeholder.jpg',
+                                '',
+                                true
+                            )"
+            >
+              <img src="/static/images/items/placeholder.jpg" />
+
+              <div class="menu-card-name">Café Latte</div>
+            </button>
+
+            <button
+              class="menu-card"
+              onclick="openItemModal(
+                                'Cappuccino',
+                                '/static/images/items/placeholder.jpg',
+                                '',
+                                true
+                            )"
+            >
+              <img src="/static/images/items/placeholder.jpg" />
+
+              <div class="menu-card-name">Cappuccino</div>
+            </button>
+
+            <button
+              class="menu-card"
+              onclick="openItemModal(
+                                'Premium Uji Matcha Latte',
+                                '/static/images/items/placeholder.jpg',
+                                '',
+                                true
+                            )"
+            >
+              <img src="/static/images/items/placeholder.jpg" />
+
+              <div class="menu-card-name">Premium Uji Matcha Latte</div>
+            </button>
+          </div>
+        </section>
+
+        <!-- PASTRIES -->
+
+        <section id="pastries" class="menu-section">
+          <h2>Pastries</h2>
+
+          <div class="menu-grid">
+            <button
+              class="menu-card"
+              onclick="openItemModal(
+                                'Butter Croissant',
+                                '/static/images/items/placeholder.jpg',
+                                '₱140',
+                                false
+                            )"
+            >
+              <img src="/static/images/items/placeholder.jpg" />
+
+              <div class="menu-card-name">Butter Croissant</div>
+
+              <div class="menu-card-price">₱140</div>
+            </button>
+
+            <button
+              class="menu-card"
+              onclick="openItemModal(
+                                'Matcha-Infused Muffin',
+                                '/static/images/items/placeholder.jpg',
+                                '₱160',
+                                false
+                            )"
+            >
+              <img src="/static/images/items/placeholder.jpg" />
+
+              <div class="menu-card-name">Matcha-Infused Muffin</div>
+
+              <div class="menu-card-price">₱160</div>
+            </button>
+
+            <button
+              class="menu-card"
+              onclick="openItemModal(
+                                'Strawberry Shortcake',
+                                '/static/images/items/placeholder.jpg',
+                                '₱240',
+                                false
+                            )"
+            >
+              <img src="/static/images/items/placeholder.jpg" />
+
+              <div class="menu-card-name">Strawberry Shortcake</div>
+
+              <div class="menu-card-price">₱240</div>
+            </button>
+
+            <button
+              class="menu-card"
+              onclick="openItemModal(
+                                'Handmade Anpan',
+                                '/static/images/items/placeholder.jpg',
+                                '₱150',
+                                false
+                            )"
+            >
+              <img src="/static/images/items/placeholder.jpg" />
+
+              <div class="menu-card-name">Handmade Anpan</div>
+
+              <div class="menu-card-price">₱150</div>
+            </button>
+          </div>
+        </section>
+
+        <!-- LIGHT DISHES -->
+
+        <section id="light-dishes" class="menu-section">
+          <h2>Light Dishes</h2>
+
+          <div class="menu-grid">
+            <button
+              class="menu-card"
+              onclick="openItemModal(
+                                'Tamagosando',
+                                '/static/images/items/placeholder.jpg',
+                                '₱190',
+                                false
+                            )"
+            >
+              <img src="/static/images/items/placeholder.jpg" />
+
+              <div class="menu-card-name">Tamagosando</div>
+
+              <div class="menu-card-price">₱190</div>
+            </button>
+
+            <button
+              class="menu-card"
+              onclick="openItemModal(
+                                'Mini Katsu Sliders',
+                                '/static/images/items/placeholder.jpg',
+                                '₱260',
+                                false
+                            )"
+            >
+              <img src="/static/images/items/placeholder.jpg" />
+
+              <div class="menu-card-name">Mini Katsu Sliders</div>
+
+              <div class="menu-card-price">₱260</div>
+            </button>
+
+            <button
+              class="menu-card"
+              onclick="openItemModal(
+                                'Smoked Salmon Toast',
+                                '/static/images/items/placeholder.jpg',
+                                '₱280',
+                                false
+                            )"
+            >
+              <img src="/static/images/items/placeholder.jpg" />
+
+              <div class="menu-card-name">Smoked Salmon Toast</div>
+
+              <div class="menu-card-price">₱280</div>
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- ============================
+             QUEUE
+        ============================= -->
+
+    <aside class="queue-panel">
+      <h2>Queue</h2>
+
+      <div class="queue-list">
+        <div class="queue-item">
+          <strong>0001</strong>
+          <span class="queue-preparing"> Preparing </span>
+        </div>
+
+        <div class="queue-item">
+          <strong>0002</strong>
+          <span class="queue-pending"> Pending </span>
+        </div>
+
+        <div class="queue-item">
+          <strong>0003</strong>
+          <span class="queue-ready"> Ready </span>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ================================
+         BOTTOM NAVIGATION
+    ================================= -->
+
+  <footer class="bottom-navigation">
+    <button onclick="history.back()">← Back</button>
+
+    <button onclick="window.location.href='/'">Home</button>
+
+    <button onclick="openCart()">Cart →</button>
+  </footer>
+</div>
+
+<!-- ====================================
+     ITEM MODAL
+===================================== -->
+
+<div id="itemModal" class="item-modal">
+  <div class="modal-backdrop" onclick="closeItemModal()"></div>
+
+  <div class="item-modal-card">
+    <h2 id="modalItemName">Item</h2>
+
+    <img
+      id="modalItemImage"
+      src="/static/images/items/placeholder.jpg"
+      alt="Item"
+    />
+
+    <div id="modalPrice" class="modal-price"></div>
+
+    <!-- Drink sizes -->
+
+    <div id="sizeOptions" class="size-options">
+      <button onclick="selectSize('Small', 170)">
+        <strong>SMALL</strong>
+        <span>₱170</span>
+      </button>
+
+      <button onclick="selectSize('Medium', 200)">
+        <strong>MEDIUM</strong>
+        <span>₱200</span>
+      </button>
+
+      <button onclick="selectSize('Large', 230)">
+        <strong>LARGE</strong>
+        <span>₱230</span>
+      </button>
+    </div>
+
+    <div class="modal-actions">
+      <button class="modal-back-button" onclick="closeItemModal()">
+        ← Back
+      </button>
+
+      <button class="modal-add-button" onclick="addCurrentItem()">
+        ＋ Add
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let selectedItem = null;
+  let selectedSize = null;
+  let selectedPrice = null;
+
+  /* ================================
+   CATEGORY NAVIGATION
+================================ */
+
+  function showCategory(categoryId) {
+    const section = document.getElementById(categoryId);
+
+    if (!section) return;
+
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
+    document.querySelectorAll(".category-button").forEach((button) => {
+      button.classList.remove("active");
+    });
+
+    event.currentTarget.classList.add("active");
+  }
+
+  /* ================================
+   ITEM MODAL
+================================ */
+
+  function openItemModal(name, image, price, hasSizes) {
+    selectedItem = name;
+    selectedSize = null;
+    selectedPrice = null;
+
+    document.getElementById("modalItemName").textContent = name;
+
+    document.getElementById("modalItemImage").src = image;
+
+    document.getElementById("modalPrice").textContent = price;
+
+    const sizes = document.getElementById("sizeOptions");
+
+    if (hasSizes) {
+      sizes.style.display = "grid";
+    } else {
+      sizes.style.display = "none";
+    }
+
+    document.getElementById("itemModal").classList.add("active");
+  }
+
+  /* ================================
+   CLOSE MODAL
+================================ */
+
+  function closeItemModal() {
+    document.getElementById("itemModal").classList.remove("active");
+  }
+
+  /* ================================
+   SIZE
+================================ */
+
+  function selectSize(size, price) {
+    selectedSize = size;
+    selectedPrice = price;
+
+    document.querySelectorAll(".size-options button").forEach((button) => {
+      button.classList.remove("selected");
+    });
+
+    event.currentTarget.classList.add("selected");
+  }
+
+  /* ================================
+   ADD ITEM
+================================ */
+
+  function addCurrentItem() {
+    if (!selectedItem) {
+      return;
+    }
+
+    /* Drinks must have a size */
+
+    if (
+      document.getElementById("sizeOptions").style.display !== "none" &&
+      !selectedSize
+    ) {
+      alert("Please select a size.");
+
+      return;
+    }
+
+    console.log("Added:", selectedItem, selectedSize, selectedPrice);
+
+    closeItemModal();
+  }
+
+  /* ================================
+   CART
+================================ */
+
+  function openCart() {
+    /*
+     * Cart functionality will be connected
+     * to the backend later.
+     */
+
+    alert("Cart UI coming next.");
+  }
+</script>
+
+{% endblock %}

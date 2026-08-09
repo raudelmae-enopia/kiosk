@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Saika Café - Orders</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/barista.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="barista-app">
+      <!-- =========================================
+         TOP BAR
+    ========================================== -->
+
+      <header class="barista-header">
+        <div class="barista-brand">
+          <img
+            class="barista-logo"
+            src="{{ url_for('static', filename='images/items/placeholder.jpg') }}"
+            alt="Saika Café Logo"
+          />
+
+          <h1>SAIKA CAFÉ</h1>
+        </div>
+
+        <a href="/" class="menu-button">
+          <span>MENU</span>
+          <span class="back-icon">←</span>
+        </a>
+      </header>
+
+      <!-- =========================================
+         ORDERS
+    ========================================== -->
+
+      <main class="barista-main">
+        <section class="orders-section">
+          <h2>Orders</h2>
+
+          <div class="orders-container">
+            <!-- =================================
+                     ORDER 0001
+                ================================== -->
+
+            <section class="order-card active-order">
+              <div class="order-header">
+                <span class="order-number"> 0001 </span>
+              </div>
+
+              <div class="order-items">
+                <div class="order-item">2 × Café Latte</div>
+
+                <div class="order-item">2 × Handmade Anpan</div>
+              </div>
+
+              <div class="order-action">
+                <button class="action-button" onclick="toggleOrderStatus(this)">
+                  PREPARE
+                </button>
+              </div>
+            </section>
+
+            <!-- =================================
+                     ORDER 0002
+                ================================== -->
+
+            <section class="order-card">
+              <div class="order-header">
+                <span class="order-number"> 0002 </span>
+              </div>
+
+              <div class="order-items">
+                <div class="order-item">1 × Café Latte</div>
+
+                <div class="order-item">2 × Handmade Anpan</div>
+              </div>
+
+              <div class="order-status">
+                <span class="pending-status"> Pending </span>
+              </div>
+            </section>
+
+            <!-- =================================
+                     ORDER 0003
+                ================================== -->
+
+            <section class="order-card">
+              <div class="order-header">
+                <span class="order-number"> 0003 </span>
+              </div>
+
+              <div class="order-items">
+                <div class="order-item">1 × Strawberry Shortcake</div>
+
+                <div class="order-item">2 × Matcha-Infused Muffin</div>
+              </div>
+
+              <div class="order-status">
+                <span class="pending-status"> Pending </span>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <!-- =========================================
+             WAITING ORDERS
+        ========================================== -->
+
+        <section class="waiting-section">
+          <h2>Waiting Orders</h2>
+
+          <div class="waiting-orders">
+            <div class="waiting-order">0004</div>
+
+            <div class="waiting-order">0005</div>
+
+            <div class="waiting-order">0006</div>
+
+            <div class="waiting-order">0007</div>
+
+            <div class="waiting-order">0008</div>
+
+            <div class="waiting-order">0009</div>
+
+            <div class="waiting-order">0010</div>
+
+            <div class="waiting-order">0011</div>
+
+            <div class="waiting-order">0012</div>
+
+            <div class="waiting-order">0013</div>
+
+            <div class="waiting-order">0014</div>
+
+            <div class="waiting-order">0015</div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- =========================================
+     JAVASCRIPT
+========================================== -->
+
+    <script>
+      function toggleOrderStatus(button) {
+        if (button.textContent.trim() === "PREPARE") {
+          button.textContent = "DONE";
+
+          button.classList.add("done-button");
+        } else {
+          button.textContent = "PREPARE";
+
+          button.classList.remove("done-button");
+        }
+      }
+    </script>
+  </body>
+</html>

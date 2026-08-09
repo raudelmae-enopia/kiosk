@@ -1,0 +1,13 @@
+Flask
+Flask-SQLAlchemy
+Flask-SocketIO
+SQLAlchemy
+python-socketio
+python-engineio
+Werkzeug
+Jinja2
+itsdangerous
+click
+blinker
+bidict
+simple-websocket
