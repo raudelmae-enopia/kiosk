@@ -32,3 +32,4 @@ class MenuItemSize(db.Model):
         "OrderItem",
         back_populates="menu_item_size"
     )
+    

@@ -22,11 +22,13 @@ class MenuItem(db.Model):
         "Category",
         back_populates="menu_items"
     )
+    
+    # normalized structure// cleaner
 
-    order_items = db.relationship(
-        "OrderItem",
-        back_populates="menu_item"
-    )
+    # order_items = db.relationship(
+    #     "OrderItem",
+    #     back_populates="menu_item"
+    # )
     
     sizes = db.relationship(
         "MenuItemSize",

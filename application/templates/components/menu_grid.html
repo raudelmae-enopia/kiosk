@@ -1,41 +1,33 @@
-<h2>Menu</h2>
+{% for item in menu_items %}
 
-<div class="menu-grid">
-  <div class="card">
-    <img
-      src="{{ url_for('static', filename='images/coffee_tokyo_drip.jpg') }}"
-    />
+<div class="menu-item">
+  <h3>{{ item.name }}</h3>
 
-    <h3>Tokyo Style Drip</h3>
+{% if item.description %}
 
-    <p>S ₱170</p>
-    <p>M ₱200</p>
-    <p>L ₱230</p>
+  <p>{{ item.description }}</p>
+  {% endif %}
 
-    <button>Add</button>
-  </div>
+{% for size in item.sizes %}
 
-  <div class="card">
-    <img src="{{ url_for('static', filename='images/espresso.jpg') }}" />
+  <p>
+    {{ size.size }} ₱{{ "%.2f"|format(size.price) }}
 
-    <h3>Espresso</h3>
+```
+<form method="POST" action="{{ url_for('cart.add_to_cart') }}">
+  <input
+    type="hidden"
+    name="menu_item_size_id"
+    value="{{ size.id }}"
+  >
 
-    <p>S ₱180</p>
-    <p>M ₱210</p>
-    <p>L ₱240</p>
+  <button type="submit">Add</button>
+</form>
+```
 
-    <button>Add</button>
-  </div>
+  </p>
+  {% endfor %}
 
-  <div class="card">
-    <img src="{{ url_for('static', filename='images/cafe_latte.jpg') }}" />
-
-    <h3>Café Latte</h3>
-
-    <p>S ₱220</p>
-    <p>M ₱250</p>
-    <p>L ₱280</p>
-
-    <button>Add</button>
-  </div>
 </div>
+
+{% endfor %}

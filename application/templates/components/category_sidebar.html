@@ -1,3 +1,4 @@
+{% comment %}
 <h2>Categories</h2>
 
 <button>Coffee & Matcha</button>
@@ -5,3 +6,12 @@
 <button>Bakery</button>
 
 <button>Snacks</button>
+
+<h2>Categories</h2>
+{% endcomment %}
+
+<h2>Categories</h2>
+
+{% for category in categories %}
+<button>{{ category.name }}</button>
+{% endfor %}
